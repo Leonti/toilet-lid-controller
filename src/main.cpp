@@ -108,7 +108,7 @@ void loop() {
  // Serial.print("Reading a measurement... ");
   lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
 
-  if (measure.RangeStatus != 4 && measure.RangeMilliMeter < 1500 && !isBusy) {  // phase failures have incorrect data
+  if (measure.RangeStatus != 4 && measure.RangeMilliMeter > 200 && measure.RangeMilliMeter < 1000 && !isBusy) {  // phase failures have incorrect data
     Serial.print("Distance (mm): "); Serial.println(measure.RangeMilliMeter);
 
     setBusy();
